@@ -3,15 +3,17 @@ from pymongo import MongoClient
 from bson import ObjectId
 import json
 import os
+from dotenv import load_dotenv
 
 from modules.nlu import parse_query
 from modules.query_builder import build_query
 
 app = Flask(__name__)
 
+load_dotenv()
+
 MONGO_URI = os.environ.get(
-    'MONGO_URI',
-    "mongodb+srv://aadarshraj4321_db_user:SB4tQI7jS0mLELMn@cluster0.bbcpmws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    'MONGO_URI'
 )
 client = MongoClient(MONGO_URI)
 db = client['ecommerce_catalog']

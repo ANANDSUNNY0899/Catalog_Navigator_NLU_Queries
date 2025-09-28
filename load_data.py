@@ -1,6 +1,9 @@
 
 from pymongo import MongoClient
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 products = [
@@ -57,8 +60,7 @@ products = [
 ]
 
 
-MONGO_URI = "mongodb+srv://aadarshraj4321_db_user:SB4tQI7jS0mLELMn@cluster0.bbcpmws.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
+MONGO_URI = os.getenv("MONGO_URI")
 
 try:
     client = MongoClient(MONGO_URI)
